@@ -1,9 +1,12 @@
 package com.yakovskij.espmash.data.model
 
-// Модель устройства
-sealed class EspDevice(val ip: String, var name: String = "ESP-Device") {
-    val pins: Map<Int, Boolean> = HashMap()
-    var isOn = true
-    class EspCam(ip: String, name: String = "Esp-Cam") : EspDevice(ip, name)
-    class EspToggle(ip: String, name: String = "Esp-Toggle") : EspDevice(ip, name)
-}
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "esp_device")
+data class EspDevice(
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    @ColumnInfo(name = "ip") val ip: String,
+    @ColumnInfo(name = "name") val name: String = "ESP-Device"
+)

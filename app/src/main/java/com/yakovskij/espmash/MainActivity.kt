@@ -11,7 +11,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            NavGraph()  // Just call NavGraph() as a Composable
+            EspMashTheme {
+                NavGraph() // Запускаем навигацию внутри темы
+            }
         }
     }
 }
